@@ -9,7 +9,7 @@
  * To install required libraries:
  * "sudo apt install mesa-common-dev libglu1-mesa-dev freeglut3-dev"
  * 
- * To compile: "gcc transformation.c -lGL -lGLU -lglut"
+ * To compile: "gcc transformation.c -lGL -lGLU -lglut -lm"
  * 
  * To run program: "./a.out"
  * 
@@ -53,6 +53,16 @@ void clearInputBuffer()
 {
     while ((getchar()) != '\n')
         ;
+}
+
+void displayMatrix(double mat[3][10])
+{
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < vertexCount; j++)
+            printf("%g\t", mat[i][j]);
+        printf("\n");
+    }
 }
 
 /**************************** Transformation Functions ********************************/
@@ -425,6 +435,11 @@ int main(int argc, char *argv[])
     default:
         break;
     }
+
+    printf("\nOriginal Matrix:\n");
+    displayMatrix(vertexMatrix);
+    printf("\nResult Matrix:\n");
+    displayMatrix(resultMatrix);
 
     /************************** Graphics stuff *********************************/
     glutInit(&argc, argv);

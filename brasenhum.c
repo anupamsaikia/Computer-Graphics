@@ -24,7 +24,7 @@ void LineBRA(void)
     printf("(x, y) = (%d, %d)\n", (int)(x + 0.5), (int)(y + 0.5));
 
     int k;
-    
+
     while (x < X2)
     {
         x++;
@@ -56,7 +56,7 @@ void Init()
     gluOrtho2D(0, 640, 0, 480);
 }
 
-main(int argc, char *argv[])
+int main(int argc, char *argv[])
 {
 
     printf("Running\n");
